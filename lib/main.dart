@@ -1,25 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'movies/domain/entities/movie.dart';
-
 void main() {
-  Movie movie = const Movie(
-      id: 1,
-      title: 'title',
-      backdropPath: 'backdropPath',
-      genreIds: [0],
-      overView: 'overView',
-      voteAverage: 1.0);
-  Movie movie1 = const Movie(
-      id: 1,
-      title: 'title',
-      backdropPath: 'backdropPath',
-      genreIds: [0],
-      overView: 'overView',
-      voteAverage: 1.0);
-  print(movie == movie1);
-  print(movie1.hashCode);
-  print(movie.hashCode);
   runApp(const MyApp());
 }
 
@@ -51,6 +32,7 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
       ),
       home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      debugShowCheckedModeBanner: false,
     );
   }
 }
