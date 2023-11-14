@@ -8,7 +8,10 @@ import '../../domain/entities/movie.dart';
 
 abstract class BaseMovieRemoteDataSource {
   Future<List<Movie>> getNowPlayingMovies();
+
   Future<List<Movie>> getPopularMovies();
+
+  Future<List<Movie>> getTopRatedMovies();
 }
 
 class MovieRemoteDataSource extends BaseMovieRemoteDataSource {
@@ -26,5 +29,28 @@ class MovieRemoteDataSource extends BaseMovieRemoteDataSource {
   }
 
   @override
-  Future<List<Movie>> getPopularMovies() {}
+  Future<List<Movie>> getPopularMovies() async {
+    final response = await Dio().get(ApiConstants.getPopularPath);
+
+    if (response.statusCode == 200) {
+      return List<MovieModel>.from((response.data['results'] as List)
+          .map((e) => MovieModel.fromJson(e)));
+    } else {
+      throw ServerException(
+          errorMessageModel: ErrorMessageModel.fromJson(response.data));
+    }
+  }
+
+  @override
+  Future<List<Movie>> getTopRatedMovies() async {
+    final response = await Dio().get(ApiConstants.getTopRatedPath);
+
+    if (response.statusCode == 200) {
+      return List<MovieModel>.from((response.data['results'] as List)
+          .map((e) => MovieModel.fromJson(e)));
+    } else {
+      throw ServerException(
+          errorMessageModel: ErrorMessageModel.fromJson(response.data));
+    }
+  }
 }
