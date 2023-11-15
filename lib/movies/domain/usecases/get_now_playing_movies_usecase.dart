@@ -4,10 +4,10 @@ import '../../../core/error/failure.dart';
 import '../entities/movie.dart';
 import '../repository/base_movie_repository.dart';
 
-class GetNowPlayingUseCase {
+class GetNowPlayingMoviesUseCase {
   final BaseMovieRepository baseMovieRepository;
 
-  GetNowPlayingUseCase(this.baseMovieRepository);
+  GetNowPlayingMoviesUseCase(this.baseMovieRepository);
 
   Future<Either<Failure, List<Movie>>> execute() async {
     return await baseMovieRepository.getNowPlayingMovies();
