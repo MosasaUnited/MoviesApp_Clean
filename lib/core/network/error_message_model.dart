@@ -3,9 +3,9 @@ import 'package:equatable/equatable.dart';
 class ErrorMessageModel extends Equatable {
   final int statusCode;
   final String statusMessage;
-  bool success;
+  final bool success;
 
-  ErrorMessageModel({
+  const ErrorMessageModel({
     required this.statusCode,
     required this.statusMessage,
     required this.success,

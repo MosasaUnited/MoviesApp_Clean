@@ -33,7 +33,7 @@ class MoviesRepository extends BaseMovieRepository {
   }
 
   @override
-  Future<Either<Failure, List<Movie>>> getTopRated() async {
+  Future<Either<Failure, List<Movie>>> getTopRatedMovies() async {
     final result = await baseMovieRemoteDataSource.getTopRatedMovies();
     try {
       return Right(result);

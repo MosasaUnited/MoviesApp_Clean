@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
-import '../../../movies/data/datasource/movie_remote_data_source.dart';
-import '../../../movies/data/repository/movies_repository.dart';
-import '../../../movies/domain/entities/movie.dart';
-import '../../../movies/domain/repository/base_movie_repository.dart';
-import '../../../movies/domain/usecases/get_now_playing_movies_usecase.dart';
+import '../../data/datasource/movie_remote_data_source.dart';
+import '../../data/repository/movies_repository.dart';
+import '../../domain/entities/movie.dart';
+import '../../domain/repository/base_movie_repository.dart';
+import '../../domain/usecases/get_now_playing_movies_usecase.dart';
 
 class MoviesScreen extends StatefulWidget {
   const MoviesScreen({super.key});
