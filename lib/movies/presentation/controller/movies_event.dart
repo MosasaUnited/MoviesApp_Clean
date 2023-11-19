@@ -4,7 +4,7 @@ abstract class MoviesEvent extends Equatable {
   const MoviesEvent();
 }
 
-class GetNowPlayingEvent extends MoviesEvent {
+class GetNowPlayingMoviesEvent extends MoviesEvent {
   @override
   // TODO: implement props
   List<Object?> get props => throw UnimplementedError();
