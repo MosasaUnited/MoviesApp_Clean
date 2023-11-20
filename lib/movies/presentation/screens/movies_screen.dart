@@ -4,6 +4,8 @@ import 'package:movie_clean/movies/presentation/controller/movies_bloc.dart';
 import 'package:movie_clean/movies/presentation/controller/movies_event.dart';
 import 'package:movie_clean/movies/presentation/controller/movies_state.dart';
 
+import '../../../core/services/services_locator.dart';
+
 class MoviesScreen extends StatelessWidget {
   const MoviesScreen({super.key});
 
@@ -11,7 +13,7 @@ class MoviesScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocProvider(
         create: (BuildContext context) =>
-            MoviesBloc()..add(GetNowPlayingMoviesEvent()),
+            MoviesBloc(sl())..add(GetNowPlayingMoviesEvent()),
         child: BlocBuilder<MoviesBloc, MoviesState>(builder: (context, state) {
           print(state);
           return const Scaffold();
