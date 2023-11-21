@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:movie_clean/core/services/services_locator.dart';
-import 'package:movie_clean/movies/presentation/screens/movies_screen.dart';
+import 'package:movie_clean/test.dart';
 
 void main() {
   ServicesLocator().init();
@@ -19,7 +19,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const MainMoviesScreen(),
+      home: const TestScreen(),
       debugShowCheckedModeBanner: false,
     );
   }
