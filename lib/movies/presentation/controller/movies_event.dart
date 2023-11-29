@@ -10,7 +10,7 @@ class GetNowPlayingMoviesEvent extends MoviesEvent {
   List<Object?> get props => throw UnimplementedError();
 }
 
-class GetNowPopularMoviesEvent extends MoviesEvent {
+class GetPopularMoviesEvent extends MoviesEvent {
   @override
   // TODO: implement props
   List<Object?> get props => throw UnimplementedError();
