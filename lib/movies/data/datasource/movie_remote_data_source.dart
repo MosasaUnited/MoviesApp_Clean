@@ -17,7 +17,7 @@ abstract class BaseMovieRemoteDataSource {
 class MovieRemoteDataSource extends BaseMovieRemoteDataSource {
   @override
   Future<List<MovieModel>> getNowPlayingMovies() async {
-    final response = await Dio().get(ApiConstants.nowPlayingMoviePath);
+    final response = await Dio().get(ApiConstants.getNowPlayingMoviePath);
 
     if (response.statusCode == 200) {
       return List<MovieModel>.from((response.data['results'] as List)
@@ -33,9 +33,11 @@ class MovieRemoteDataSource extends BaseMovieRemoteDataSource {
     final response = await Dio().get(ApiConstants.getPopularMoviesPath);
 
     if (response.statusCode == 200) {
+      print('Success to get Popular Api');
       return List<MovieModel>.from((response.data['results'] as List)
           .map((e) => MovieModel.fromJson(e)));
     } else {
+      print('Failed to get Popular Api');
       throw ServerException(
           errorMessageModel: ErrorMessageModel.fromJson(response.data));
     }
