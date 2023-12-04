@@ -6,6 +6,7 @@ import 'package:movie_clean/movies/domain/usecases/get_now_playing_movies_usecas
 import 'package:movie_clean/movies/presentation/controller/movies_event.dart';
 import 'package:movie_clean/movies/presentation/controller/movies_state.dart';
 
+import '../../../core/usecase/base_usecase.dart';
 import '../../domain/usecases/get_popular_movies_usecase.dart';
 import '../../domain/usecases/get_top_rated_movies_usecase.dart';
 
@@ -28,7 +29,7 @@ class MoviesBloc extends Bloc<MoviesEvent, MoviesState> {
 
   Future<void> _getNowPlayingMovies(
       GetNowPlayingMoviesEvent event, Emitter<MoviesState> emit) async {
-    final result = await getNowPlayingMoviesUseCase();
+    final result = await getNowPlayingMoviesUseCase(const NoParameters());
     result.fold(
       (l) => emit(
         state.copyWith(
@@ -47,7 +48,7 @@ class MoviesBloc extends Bloc<MoviesEvent, MoviesState> {
 
   Future<void> _getPopularMovies(
       GetPopularMoviesEvent event, Emitter<MoviesState> emit) async {
-    final result = await getPopularMoviesUseCase();
+    final result = await getPopularMoviesUseCase(const NoParameters());
     print(result);
     result.fold(
       (l) => emit(
@@ -67,7 +68,7 @@ class MoviesBloc extends Bloc<MoviesEvent, MoviesState> {
 
   FutureOr<void> _getTopRatedMovies(
       GetTopRatedMoviesEvent event, Emitter<MoviesState> emit) async {
-    final result = await getTopRatedMovieUseCase();
+    final result = await getTopRatedMovieUseCase(const NoParameters());
     print(result);
     result.fold(
       (l) => emit(
