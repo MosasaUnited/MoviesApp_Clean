@@ -11,8 +11,9 @@ class MovieDetails extends Equatable {
   final String title;
   final String voteAverage;
 
-  const MovieDetails(this.genres,
-      {required this.backdropPath,
+  const MovieDetails(
+      {required this.genres,
+      required this.backdropPath,
       required this.id,
       required this.overView,
       required this.releaseDate,
