@@ -7,6 +7,8 @@ import 'package:movie_clean/movies/domain/usecases/get_top_rated_movies_usecase.
 import 'package:movie_clean/movies/presentation/controller/movies_bloc.dart';
 
 import '../../movies/domain/repository/base_movie_repository.dart';
+import '../../movies/domain/usecases/get_moviedetails_usecase.dart';
+import '../../movies/presentation/controller/movie_details_bloc.dart';
 
 final sl = GetIt.instance;
 
@@ -14,11 +16,13 @@ class ServicesLocator {
   void init() {
     /// Bloc
     sl.registerFactory(() => MoviesBloc(sl(), sl(), sl()));
+    sl.registerFactory(() => MovieDetailsBloc(sl()));
 
     ///Use Cases
     sl.registerLazySingleton(() => GetNowPlayingMoviesUseCase(sl()));
     sl.registerLazySingleton(() => GetPopularMoviesUseCase(sl()));
     sl.registerLazySingleton(() => GetTopRatedMovieUseCase(sl()));
+    sl.registerLazySingleton(() => GetMovieDetailsUseCase(sl()));
 
     /// Repository
     sl.registerLazySingleton<BaseMovieRepository>(() => MoviesRepository(sl()));

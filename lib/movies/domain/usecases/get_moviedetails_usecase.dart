@@ -21,11 +21,12 @@ class GetMovieDetailsUseCase
 // هنا لو عايز تضيف أكتر من model تجيب بيه الداتا
 class MovieDetailsParameters extends Equatable {
   final int movieId;
-  final String name;
 
-  const MovieDetailsParameters(this.movieId, this.name);
+  const MovieDetailsParameters({
+    required this.movieId,
+  });
 
   @override
   // TODO: implement props
-  List<Object?> get props => [movieId, name];
+  List<Object?> get props => [movieId];
 }
