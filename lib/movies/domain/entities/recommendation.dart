@@ -4,7 +4,7 @@ class Recommendation extends Equatable {
   final String backdropPath;
   final int id;
 
-  const Recommendation(this.backdropPath, this.id);
+  const Recommendation({required this.backdropPath, required this.id});
 
   @override
   List<Object?> get props => [backdropPath, id];
