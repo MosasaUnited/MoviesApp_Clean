@@ -9,6 +9,7 @@ import 'package:shimmer/shimmer.dart';
 
 import '../../../core/network/api_constants.dart';
 import '../../../core/services/services_locator.dart';
+import '../../../core/utilities/app_strings.dart';
 import '../../domain/entities/genres.dart';
 import 'dummy.dart';
 
@@ -171,7 +172,7 @@ class MovieDetailContent extends StatelessWidget {
                           ),
                           const SizedBox(height: 8.0),
                           Text(
-                            'Genres: ${_showGenres(state.movieDetails!.genres)}',
+                            '${AppStrings.genres}: ${_showGenres(state.movieDetails!.genres)}',
                             style: const TextStyle(
                               color: Colors.white70,
                               fontSize: 12.0,
@@ -190,9 +191,9 @@ class MovieDetailContent extends StatelessWidget {
                     child: FadeInUp(
                       from: 20,
                       duration: const Duration(milliseconds: 500),
-                      child: Text(
-                        'More like this'.toUpperCase(),
-                        style: const TextStyle(
+                      child: const Text(
+                        AppStrings.moreLikeThis,
+                        style: TextStyle(
                           fontSize: 16.0,
                           fontWeight: FontWeight.w500,
                           letterSpacing: 1.2,
